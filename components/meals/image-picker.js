@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import styles from './image-picker.module.css';
 import Image from 'next/image';
 
-const ImagePicker = ({label, image}) => {
+const ImagePicker = ({label, name}) => {
     const [pickedImage, setPickedImage] = useState();
     const imageInput = useRef();
 
@@ -28,7 +28,7 @@ const ImagePicker = ({label, image}) => {
 
     return (
         <div className={styles.picker}>
-            <label htmlFor={image}>{label}</label>
+            <label htmlFor={name}>{label}</label>
             <div className={styles.controls}>
                 <div className={styles.preview}>
                     {!pickedImage && <p>No Image picked yet.</p>}
@@ -37,9 +37,9 @@ const ImagePicker = ({label, image}) => {
                 </div>
                 <input 
                     type="file" 
-                    id={image} 
+                    id={name} 
                     accept="image/png, image/jpeg" 
-                    name={image} 
+                    name={name} 
                     className={styles.input}
                     ref={imageInput}
                     onChange={handleImageChange}
